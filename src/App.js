@@ -10,7 +10,7 @@ class App extends Component{
       {
         id: 1,
         title: 'first thing to do',
-        completed: false
+        completed: true
       },
       {
         id: 2,
@@ -25,13 +25,22 @@ class App extends Component{
     ]
   };
 
-
+  //Togle Completed
+  markComplete = (id)=>{
+    // console.log("id", id);
+    this.setState({todos: this.state.todos.map(todo =>{
+        if(todo.id === id){
+          todo.completed = !todo.completed
+        }
+        return todo;
+    })});
+  }
 
   render() {
     return (
       <div className="App">
         <h1>ToDo list</h1>
-        <Todos todos={this.state.todos} />
+        <Todos todos={this.state.todos} markComplete={this.markComplete} />
       </div>
     );
   }

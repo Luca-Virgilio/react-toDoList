@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Todos from './components/Todos';
+import Header from './components/layout/Header';
 // import { render } from '@testing-library/react';
 
 class App extends Component{
@@ -48,7 +49,7 @@ class App extends Component{
   render() {
     return (
       <div className="App">
-        <h1>ToDo list</h1>
+        <Header/>
         <Todos todos={this.state.todos} markComplete={this.markComplete} delTodo={this.delTodo}/>
       </div>
     );
